@@ -85,8 +85,8 @@ export default function PortfolioPage() {
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${selectedCategory === cat
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20"
-                    : "glass-panel bg-slate-900/60 text-slate-400 hover:text-white border border-white/5"
+                  ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20"
+                  : "glass-panel bg-slate-900/60 text-slate-400 hover:text-white border border-white/5"
                   }`}
               >
                 {cat}

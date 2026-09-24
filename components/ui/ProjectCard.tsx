@@ -27,9 +27,8 @@ export function ProjectCard({ project, onPlayVideo }: ProjectCardProps) {
             onPlayVideo(project.videoUrl, project.title, project.category);
           }
         }}
-        className={`relative aspect-video w-full overflow-hidden bg-slate-950 ${
-          project.videoUrl && onPlayVideo ? "cursor-pointer group/thumb" : ""
-        }`}
+        className={`relative aspect-video w-full overflow-hidden bg-slate-950 ${project.videoUrl && onPlayVideo ? "cursor-pointer group/thumb" : ""
+          }`}
       >
         <Image
           src={imgSrc}
