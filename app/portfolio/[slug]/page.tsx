@@ -8,7 +8,7 @@ import { getProjectBySlug } from "@/lib/data";
 import { VideoModal } from "@/components/ui/VideoModal";
 import { AppointmentBookingModal } from "@/components/ui/AppointmentBookingModal";
 import { Project } from "@/types";
-import { getValidImageUrl } from "@/lib/utils";
+import { getValidImageUrl, formatVideoEmbedUrl } from "@/lib/utils";
 import {
   ArrowLeft,
   Play,
