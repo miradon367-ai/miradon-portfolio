@@ -139,7 +139,7 @@ export default function ProjectDetailsPage() {
         <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-video w-full bg-slate-950 mb-12 sm:mb-16 border border-cyan-500/30 shadow-2xl shadow-cyan-950/30">
           {project.videoUrl ? (
             <iframe
-              src={formatVideoEmbedUrl(project.videoUrl, true)}
+              src={formatVideoEmbedUrl(project.videoUrl, { autoplay: true, mute: true, loop: true })}
               title={project.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

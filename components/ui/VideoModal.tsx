@@ -36,7 +36,7 @@ export function VideoModal({
     };
   }, [isOpen, onClose]);
 
-  const embedUrl = formatVideoEmbedUrl(videoUrl);
+  const embedUrl = formatVideoEmbedUrl(videoUrl, { autoplay: true, mute: false });
 
   return (
     <AnimatePresence>
@@ -91,9 +91,9 @@ export function VideoModal({
             <div className="relative w-full bg-black/90 overflow-hidden" style={{ aspectRatio: "16/9" }}>
               {embedUrl ? (
                 <iframe
-                  src={embedUrl.includes("?") ? `${embedUrl}&autoplay=1` : `${embedUrl}?autoplay=1`}
+                  src={embedUrl}
                   title={title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full border-0"
                 />

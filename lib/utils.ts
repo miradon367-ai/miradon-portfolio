@@ -41,12 +41,26 @@ export function getValidImageUrl(url?: string, fallback = "https://images.unspla
   return fallback;
 }
 
+interface EmbedOptions {
+  autoplay?: boolean;
+  mute?: boolean;
+  loop?: boolean;
+}
+
 /**
- * Converts standard YouTube watch/share links into clean embed URLs with autoplay support
+ * Converts standard YouTube watch/share links into clean embed URLs with full autoplay and device compatibility
  */
-export function formatVideoEmbedUrl(url?: string, autoplay: boolean = true): string {
+export function formatVideoEmbedUrl(
+  url?: string,
+  options: boolean | EmbedOptions = true
+): string {
   if (!url) return "";
   const cleaned = url.trim();
+
+  const opts: EmbedOptions =
+    typeof options === "boolean"
+      ? { autoplay: options, mute: false, loop: false }
+      : { autoplay: true, mute: false, loop: false, ...options };
 
   const youtubeId = getYoutubeId(cleaned);
   if (youtubeId) {
@@ -56,25 +70,32 @@ export function formatVideoEmbedUrl(url?: string, autoplay: boolean = true): str
       playsinline: "1",
       enablejsapi: "1",
     });
-    if (autoplay) {
+
+    if (opts.autoplay) {
       params.set("autoplay", "1");
     }
-    return `https://www.youtube-nocookie.com/embed/${youtubeId}?${params.toString()}`;
+    if (opts.mute) {
+      params.set("mute", "1");
+    }
+    if (opts.loop) {
+      params.set("loop", "1");
+      params.set("playlist", youtubeId);
+    }
+
+    return `https://www.youtube.com/embed/${youtubeId}?${params.toString()}`;
   }
 
   if (cleaned.includes("vimeo.com")) {
-    const match = cleaned.match(/vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/[^\/]*\/videos\/|album\/(?:\d+\/)?video\/|)(\d+)(?:$|\/|\?)/);
+    const match = cleaned.match(
+      /vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/[^\/]*\/videos\/|album\/(?:\d+\/)?video\/|)(\d+)(?:$|\/|\?)/
+    );
     if (match && match[1]) {
-      const autoParam = autoplay ? "?autoplay=1&muted=0" : "";
+      const autoParam = opts.autoplay ? (opts.mute ? "?autoplay=1&muted=1" : "?autoplay=1") : "";
       return `https://player.vimeo.com/video/${match[1]}${autoParam}`;
     }
   }
 
-  if (autoplay && (cleaned.includes("youtube") || cleaned.includes("youtu.be"))) {
-    const separator = cleaned.includes("?") ? "&" : "?";
-    return `${cleaned}${separator}autoplay=1&playsinline=1`;
-  }
-
   return cleaned;
 }
+
 
