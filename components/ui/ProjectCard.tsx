@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Play, ArrowUpRight, Layers } from "lucide-react";
+import { ArrowUpRight, Layers, Maximize2 } from "lucide-react";
 import { Project } from "@/types";
-import { getValidImageUrl } from "@/lib/utils";
+import { getValidImageUrl, formatVideoEmbedUrl } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: Project;
@@ -20,70 +20,47 @@ export function ProjectCard({ project, onPlayVideo }: ProjectCardProps) {
 
   return (
     <div className="group relative rounded-2xl glass-panel bg-slate-900/60 border border-white/10 hover:border-cyan-500/40 transition-all duration-500 overflow-hidden flex flex-col h-full hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
-      {/* Thumbnail */}
-      <div
-        onClick={() => {
-          if (project.videoUrl && onPlayVideo) {
-            onPlayVideo(project.videoUrl, project.title, project.category);
-          }
-        }}
-        className={`relative aspect-video w-full overflow-hidden bg-slate-950 ${project.videoUrl && onPlayVideo ? "cursor-pointer group/thumb" : ""
-          }`}
-      >
-        <Image
-          src={imgSrc}
-          alt={project.title}
-          fill
-          unoptimized
-          onError={() =>
-            setImgSrc("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200")
-          }
-          className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
-
-        {/* Center Hover Play Icon */}
-        {project.videoUrl && onPlayVideo && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300">
-            <div className="w-12 h-12 rounded-full bg-cyan-500/90 text-slate-950 flex items-center justify-center shadow-lg shadow-cyan-500/50 transform scale-75 group-hover/thumb:scale-100 transition-transform duration-300">
-              <Play className="w-5 h-5 ml-0.5 fill-current" />
-            </div>
+      {/* Video Container with Autoplay */}
+      <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
+        {project.videoUrl ? (
+          <iframe
+            src={formatVideoEmbedUrl(project.videoUrl, { autoplay: true, mute: true, loop: true })}
+            title={project.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+            className="w-full h-full border-0"
+          />
+        ) : (
+          <div className="relative w-full h-full">
+            <Image
+              src={imgSrc}
+              alt={project.title}
+              fill
+              unoptimized
+              onError={() =>
+                setImgSrc("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200")
+              }
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
           </div>
         )}
 
-        {/* Category & Play Badge */}
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10 gap-2">
-          <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-medium tracking-wide bg-slate-950/80 text-cyan-300 border border-cyan-500/30 backdrop-blur-md truncate">
-            {project.category}
-          </span>
-
-          {project.videoUrl && onPlayVideo && (
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onPlayVideo(project.videoUrl!, project.title, project.category);
-              }}
-              className="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-medium flex items-center gap-1 bg-cyan-500 text-slate-950 font-semibold hover:bg-cyan-400 transition-colors shadow-lg shadow-cyan-500/20 cursor-pointer"
-            >
-              <Play className="w-2.5 h-2.5 fill-current" /> Play
-            </button>
-          )}
-        </div>
-
-        {/* Metric Badges */}
-        <div className="absolute bottom-2.5 left-3 right-3 flex flex-wrap gap-1.5 z-10">
-          {metrics.slice(0, 2).map((metric, i) => (
-            <span
-              key={i}
-              className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-900/90 text-slate-300 border border-white/10 backdrop-blur-sm"
-            >
-              <span className="text-cyan-400 font-semibold">{metric.value}</span> {metric.label}
-            </span>
-          ))}
-        </div>
+        {/* Expand / Sound Button Overlay */}
+        {project.videoUrl && onPlayVideo && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onPlayVideo(project.videoUrl!, project.title, project.category);
+            }}
+            title="Open in Fullscreen with Audio"
+            className="absolute top-2.5 right-2.5 z-20 px-2 py-1 rounded-md text-[11px] font-mono font-medium flex items-center gap-1 bg-slate-950/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-300 border border-cyan-500/40 backdrop-blur-md transition-all shadow-md cursor-pointer"
+          >
+            <Maximize2 className="w-3 h-3" /> Full Sound
+          </button>
+        )}
       </div>
 
       {/* Content */}
