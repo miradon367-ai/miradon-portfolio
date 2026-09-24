@@ -9,6 +9,7 @@ export interface Profile {
   bio: string;
   location: string;
   availability: string;
+  image?: string;
   socials: {
     linkedin: string;
     github: string;

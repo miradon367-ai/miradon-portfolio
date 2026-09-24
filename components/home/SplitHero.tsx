@@ -21,8 +21,16 @@ export function SplitHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headline, Bio Highlights & Action CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+            {/* Status Pill with Avatar */}
+            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+              <div className="relative w-5 h-5 rounded-full overflow-hidden border border-cyan-400 shrink-0">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Miradon"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
               <span>AI Video Expert • Software & AI Developer • Website Designer</span>
             </div>

@@ -34,10 +34,11 @@ export default function AboutPage() {
             <div className="relative rounded-3xl p-1 bg-gradient-to-tr from-cyan-500/30 via-purple-600/30 to-blue-500/30 shadow-2xl">
               <div className="relative rounded-[22px] overflow-hidden bg-slate-950 aspect-[4/5]">
                 <Image
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
-                  alt="Mira David don"
+                  src={profileData.image || "/images/profile.jpg"}
+                  alt={profileData.name}
                   fill
-                  className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
+                  priority
+                  className="object-cover object-center hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-panel bg-slate-950/90 border border-white/10">
