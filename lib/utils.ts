@@ -42,23 +42,39 @@ export function getValidImageUrl(url?: string, fallback = "https://images.unspla
 }
 
 /**
- * Converts standard YouTube watch/share links into clean embed URLs
+ * Converts standard YouTube watch/share links into clean embed URLs with autoplay support
  */
-export function formatVideoEmbedUrl(url?: string): string {
+export function formatVideoEmbedUrl(url?: string, autoplay: boolean = true): string {
   if (!url) return "";
   const cleaned = url.trim();
 
   const youtubeId = getYoutubeId(cleaned);
   if (youtubeId) {
-    return `https://www.youtube-nocookie.com/embed/${youtubeId}`;
+    const params = new URLSearchParams({
+      rel: "0",
+      modestbranding: "1",
+      playsinline: "1",
+      enablejsapi: "1",
+    });
+    if (autoplay) {
+      params.set("autoplay", "1");
+    }
+    return `https://www.youtube-nocookie.com/embed/${youtubeId}?${params.toString()}`;
   }
 
   if (cleaned.includes("vimeo.com")) {
     const match = cleaned.match(/vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/[^\/]*\/videos\/|album\/(?:\d+\/)?video\/|)(\d+)(?:$|\/|\?)/);
     if (match && match[1]) {
-      return `https://player.vimeo.com/video/${match[1]}`;
+      const autoParam = autoplay ? "?autoplay=1&muted=0" : "";
+      return `https://player.vimeo.com/video/${match[1]}${autoParam}`;
     }
+  }
+
+  if (autoplay && (cleaned.includes("youtube") || cleaned.includes("youtu.be"))) {
+    const separator = cleaned.includes("?") ? "&" : "?";
+    return `${cleaned}${separator}autoplay=1&playsinline=1`;
   }
 
   return cleaned;
 }
+

@@ -31,7 +31,14 @@ export default function PortfolioPage() {
       .catch((err) => console.error("Could not refresh projects:", err));
   }, []);
 
-  const categories = ["All", "AI Video & Film", "Software & Games", "Web Design & Dev", "Commercial"];
+  const categories = [
+    "All",
+    "AI Short Film",
+    "AI Documentary",
+    "AI Video & Film",
+    "Software & Games",
+    "Web Design & Dev",
+  ];
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =

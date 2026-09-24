@@ -306,5 +306,256 @@
         "value": "Magical Glows"
       }
     ]
+  },
+  {
+    "id": "proj-drum-ancestors",
+    "slug": "the-drum-of-the-ancestors",
+    "title": "THE DRUM OF THE ANCESTORS",
+    "category": "AI Short Film",
+    "type": "Cinematic Nigerian Fantasy Short Film",
+    "client": "MIRADON ORIGINALS",
+    "role": "AI Creator & Director",
+    "year": "2026",
+    "featured": true,
+    "videoUrl": "https://www.youtube.com/watch?v=tYjV2AAXPw4",
+    "thumbnailUrl": "https://img.youtube.com/vi/tYjV2AAXPw4/hqdefault.jpg",
+    "bannerUrl": "https://img.youtube.com/vi/tYjV2AAXPw4/maxresdefault.jpg",
+    "summary": "THE DRUM OF THE ANCESTORS | A Cinematic Nigerian Fantasy Short Film",
+    "description": "Deep in an ancient village, a mysterious drum carries a secret that has been forgotten for generations.\n\nWhen a young boy discovers the Drum of the Ancestors, he awakens an ancient force connecting the living world to the spirits of those who came before. What begins as a simple discovery soon becomes a dangerous journey into a world of ancestral power, mystery, and destiny.\n\n🎬 Genre: African Fantasy / Mystery / Adventure\n🌍 Setting: Ancient Nigerian Village\n✨ Themes: Ancestry • Destiny • Spiritual Power • African Mythology",
+    "technicalBreakdown": {
+      "overview": "A cinematic Nigerian fantasy short film blending African mythology with AI-generated visuals",
+      "pipeline": [
+        "African Village Environment & Cultural Worldbuilding",
+        "Ancestral Spirit VFX & Mystical Lighting Design",
+        "Character Direction & Traditional Costume Prompting",
+        "Orchestral African Score & Ritual Sound Design"
+      ],
+      "aiToolsUsed": [
+        "Midjourney v6",
+        "Runway Gen-3",
+        "Luma Dream Machine",
+        "ElevenLabs",
+        "Topaz Video AI"
+      ],
+      "techStack": [
+        "African Mythology Prompts",
+        "Ancestral Spirit Particle VFX",
+        "Cinematic Color Grading"
+      ],
+      "keyChallenges": [
+        "Authentically representing ancient Nigerian village aesthetics and spiritual visual elements with AI generation."
+      ],
+      "outcomes": [
+        "Deeply atmospheric Nigerian fantasy short film",
+        "Rich cultural representation and mystical visual storytelling",
+        "Powerful ancestral narrative with cinematic impact"
+      ]
+    },
+    "metrics": [
+      {
+        "label": "Quality",
+        "value": "4K UHD"
+      },
+      {
+        "label": "Genre",
+        "value": "African Fantasy"
+      },
+      {
+        "label": "Setting",
+        "value": "Ancient Nigeria"
+      },
+      {
+        "label": "Soundtrack",
+        "value": "Orchestral African"
+      }
+    ]
+  },
+  {
+    "id": "proj-pompeii-destroyed",
+    "slug": "pompeii-destroyed",
+    "title": "POMPEII DESTROYED",
+    "category": "AI Documentary",
+    "type": "Historical Documentary",
+    "client": "MIRADON ORIGINALS",
+    "role": "AI Creator & Director",
+    "year": "2026",
+    "featured": true,
+    "videoUrl": "https://www.youtube.com/watch?v=nrJQbxq5PYw",
+    "thumbnailUrl": "https://img.youtube.com/vi/nrJQbxq5PYw/hqdefault.jpg",
+    "bannerUrl": "https://img.youtube.com/vi/nrJQbxq5PYw/maxresdefault.jpg",
+    "summary": "POMPEII DESTROYED | A Cinematic AI Historical Documentary",
+    "description": "In 79 AD, the ancient Roman city of Pompeii was struck by one of history's most devastating volcanic disasters.\n\nWhen Mount Vesuvius erupted, a thriving city was suddenly transformed into a landscape of ash, pumice, and darkness. What began as an ordinary day quickly became a fight for survival as explosions, falling debris, and deadly volcanic material overwhelmed Pompeii.\n\n🎬 Genre: History Documentary / Disaster\n🏛️ Setting: Ancient Rome, 79 AD\n🌋 Themes: Survival • Ancient History • Natural Disaster • Roman Civilization",
+    "technicalBreakdown": {
+      "overview": "An AI-generated cinematic historical documentary recreating the destruction of Pompeii",
+      "pipeline": [
+        "Ancient Roman Architecture & Era Research",
+        "Volcanic Eruption VFX & Ash Cloud Simulation",
+        "Dramatic Survivor Narrative Scene Blocking",
+        "Cinematic Documentary Score & Sound Design"
+      ],
+      "aiToolsUsed": [
+        "Midjourney v6",
+        "Runway Gen-3",
+        "ElevenLabs",
+        "DaVinci Resolve",
+        "Topaz Video AI"
+      ],
+      "techStack": [
+        "Historical Style Diffusion",
+        "Disaster VFX Prompting",
+        "Documentary Pacing & Narration"
+      ],
+      "keyChallenges": [
+        "Accurately recreating ancient Roman Pompeii architecture and the catastrophic visual scale of a volcanic eruption."
+      ],
+      "outcomes": [
+        "Cinematic AI history documentary with photorealistic ancient environments",
+        "Immersive disaster sequences with dramatic pacing",
+        "Educational storytelling with cinematic production value"
+      ]
+    },
+    "metrics": [
+      {
+        "label": "Quality",
+        "value": "4K UHD"
+      },
+      {
+        "label": "Era",
+        "value": "79 AD Rome"
+      },
+      {
+        "label": "Genre",
+        "value": "History Documentary"
+      },
+      {
+        "label": "VFX",
+        "value": "Volcanic Eruption"
+      }
+    ]
+  },
+  {
+    "id": "proj-ancient-benin",
+    "slug": "the-benin-kingdom",
+    "title": "THE BENIN KINGDOM",
+    "category": "AI Documentary",
+    "type": "Cinematic Historical Documentary",
+    "client": "MIRADON ORIGINALS",
+    "role": "AI Creator & Director",
+    "year": "2026",
+    "featured": true,
+    "videoUrl": "https://www.youtube.com/watch?v=OHCWlyAj4L4",
+    "thumbnailUrl": "https://img.youtube.com/vi/OHCWlyAj4L4/hqdefault.jpg",
+    "bannerUrl": "https://img.youtube.com/vi/OHCWlyAj4L4/maxresdefault.jpg",
+    "summary": "THE BENIN KINGDOM | A Cinematic Historical Documentary",
+    "description": "Long before the modern borders of Nigeria were drawn, the Benin Kingdom developed into one of West Africa's most influential states.\n\nCentered in present-day southern Nigeria, Benin became renowned for its sophisticated political institutions, powerful royal court, skilled artisans, and extraordinary works of art — including the famous Benin Bronzes.\n\nFrom the reign of its Obas to the development of its great city and its complex relationship with European traders, the story of Benin is one of power, culture, innovation, conflict, and resilience.\n\n🎬 Genre: African History Documentary\n🏯 Setting: Ancient Benin Kingdom, West Africa\n✨ Themes: Power • Culture • Innovation • African Legacy • Resilience",
+    "technicalBreakdown": {
+      "overview": "An AI cinematic documentary recreating the grandeur and legacy of the ancient Benin Kingdom",
+      "pipeline": [
+        "West African Historical Research & Cultural Accuracy",
+        "Royal Palace & Benin Bronze Artwork Recreation",
+        "Cinematic Court Scene Direction & Character Costuming",
+        "African Orchestral Score & Ambient Historical Sound"
+      ],
+      "aiToolsUsed": [
+        "Midjourney v6",
+        "Runway Gen-3",
+        "Luma Dream Machine",
+        "ElevenLabs",
+        "DaVinci Resolve"
+      ],
+      "techStack": [
+        "African Historical Prompts",
+        "Royal Court Lighting",
+        "Documentary Narration Synthesis"
+      ],
+      "keyChallenges": [
+        "Accurately depicting the architectural grandeur and cultural richness of the ancient Benin Kingdom with AI tools."
+      ],
+      "outcomes": [
+        "Visually stunning African historical documentary",
+        "Authentic representation of Benin's royal heritage and Bronzes",
+        "Compelling narrative of African power and resilience"
+      ]
+    },
+    "metrics": [
+      {
+        "label": "Quality",
+        "value": "4K UHD"
+      },
+      {
+        "label": "Region",
+        "value": "West Africa"
+      },
+      {
+        "label": "Genre",
+        "value": "African History"
+      },
+      {
+        "label": "Legacy",
+        "value": "Benin Bronzes"
+      }
+    ]
+  },
+  {
+    "id": "proj-lagos-neighbours",
+    "slug": "the-lagos-neighbours",
+    "title": "THE LAGOS NEIGHBOURS",
+    "category": "AI Short Film",
+    "type": "Nigerian Family Drama Short Film",
+    "client": "MIRADON ORIGINALS",
+    "role": "AI Creator & Director",
+    "year": "2026",
+    "featured": true,
+    "videoUrl": "https://www.youtube.com/watch?v=aGft1VjrMSI",
+    "thumbnailUrl": "https://img.youtube.com/vi/aGft1VjrMSI/hqdefault.jpg",
+    "bannerUrl": "https://img.youtube.com/vi/aGft1VjrMSI/maxresdefault.jpg",
+    "summary": "THE LAGOS NEIGHBOURS | A Nigerian Family Drama Short Film",
+    "description": "In a busy Lagos neighborhood, everyone knows everyone — or at least they think they do.\n\nTHE LAGOS NEIGHBOURS is a relatable Nigerian short film about the everyday relationships, misunderstandings, secrets, arguments, humor, and unexpected moments that happen when different families live side by side.\n\nFrom noisy arguments and neighborhood gossip to friendships and family conflicts, the story captures the unpredictable reality of life among Lagos neighbours.\n\n🎬 Genre: Nigerian Drama / Comedy / Family\n🌆 Setting: Lagos, Nigeria\n🏘️ Themes: Community • Family • Humor • Conflict • Nigerian Life",
+    "technicalBreakdown": {
+      "overview": "A relatable Nigerian drama short film set in a vibrant Lagos neighborhood",
+      "pipeline": [
+        "Lagos Urban Environment & Neighborhood Set Design",
+        "Multi-Character Family Drama Direction",
+        "Comedy Timing & Emotional Conflict Scene Pacing",
+        "Nigerian Pidgin Dialogue & Ambient Urban Sound Design"
+      ],
+      "aiToolsUsed": [
+        "Midjourney v6",
+        "Runway Gen-3",
+        "ElevenLabs",
+        "DaVinci Resolve"
+      ],
+      "techStack": [
+        "Urban Nigerian Environment Prompts",
+        "Multi-Character Consistency",
+        "Emotional Color Grading"
+      ],
+      "keyChallenges": [
+        "Capturing the authentic vibrant energy, humor, and drama of everyday Lagos neighborhood life with AI characters."
+      ],
+      "outcomes": [
+        "Relatable and entertaining Nigerian family drama",
+        "Authentic Lagos cultural representation",
+        "Multi-character storytelling with comedic and emotional beats"
+      ]
+    },
+    "metrics": [
+      {
+        "label": "Quality",
+        "value": "4K UHD"
+      },
+      {
+        "label": "Setting",
+        "value": "Lagos, Nigeria"
+      },
+      {
+        "label": "Genre",
+        "value": "Nigerian Drama"
+      },
+      {
+        "label": "Style",
+        "value": "Comedy + Drama"
+      }
+    ]
   }
 ]

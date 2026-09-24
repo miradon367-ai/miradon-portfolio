@@ -135,33 +135,27 @@ export default function ProjectDetailsPage() {
           </div>
         </div>
 
-        {/* Media Banner / Video Trigger */}
-        <div className="relative rounded-3xl overflow-hidden aspect-video w-full bg-slate-950 mb-16 border border-white/10 shadow-2xl group">
-          <Image
-            src={imgSrc || "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200"}
-            alt={project.title}
-            fill
-            unoptimized
-            priority
-            onError={() => setImgSrc("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200")}
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-black/20 pointer-events-none" />
-
-          {project.videoUrl && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
-              <button
-                onClick={() => setVideoModalOpen(true)}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-cyan-500 to-purple-600 p-1 shadow-[0_0_50px_rgba(6,182,212,0.6)] hover:scale-110 transition-transform cursor-pointer"
-                aria-label="Play Full Reel"
-              >
-                <div className="w-full h-full bg-slate-950/90 rounded-full flex items-center justify-center text-cyan-400 hover:text-white transition-colors">
-                  <Play className="w-8 h-8 sm:w-10 sm:h-10 ml-1 fill-current" />
-                </div>
-              </button>
-              <span className="mt-4 px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-slate-950/80 text-cyan-300 border border-cyan-500/40 backdrop-blur-md">
-                Launch Interactive Reel
-              </span>
+        {/* Media Player / Direct Video Embed */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-video w-full bg-slate-950 mb-12 sm:mb-16 border border-cyan-500/30 shadow-2xl shadow-cyan-950/30">
+          {project.videoUrl ? (
+            <iframe
+              src={formatVideoEmbedUrl(project.videoUrl, true)}
+              title={project.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full border-0"
+            />
+          ) : (
+            <div className="relative w-full h-full">
+              <Image
+                src={imgSrc || "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200"}
+                alt={project.title}
+                fill
+                unoptimized
+                priority
+                onError={() => setImgSrc("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200")}
+                className="object-cover object-center"
+              />
             </div>
           )}
         </div>

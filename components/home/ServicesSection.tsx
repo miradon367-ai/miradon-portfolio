@@ -12,7 +12,7 @@ const iconMap: Record<string, any> = {
 
 export function ServicesSection() {
   return (
-    <section className="py-24 relative bg-slate-950/80 border-t border-white/5" id="services">
+    <section className="py-14 sm:py-24 relative bg-slate-950/80 border-t border-white/5" id="services">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
 
