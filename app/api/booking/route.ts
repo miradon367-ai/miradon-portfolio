@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { sendAppointmentEmail } from "@/lib/email";
+import fs from "fs";
+import path from "path";
 
 export async function POST(req: Request) {
   try {
@@ -12,22 +15,44 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("📅 [NEW APPOINTMENT BOOKING DISPATCHED]");
-    console.log({
-      to: "miradon367@gmail.com",
-      clientName: name,
-      clientEmail: email,
-      scheduledDate: date,
-      scheduledTime: time,
-      serviceType: service || "Consultation",
+    // 1. Dispatch automated email notification to miradon367@gmail.com
+    await sendAppointmentEmail({
+      name,
+      email,
+      date,
+      time,
+      service: service || "Consultation",
       notes: notes || "No additional notes provided.",
-      timestamp: new Date().toISOString(),
     });
+
+    // 2. Persist appointment to data/appointments.json
+    try {
+      const filePath = path.join(process.cwd(), "data", "appointments.json");
+      let appointments = [];
+      if (fs.existsSync(filePath)) {
+        const fileContent = fs.readFileSync(filePath, "utf-8");
+        appointments = fileContent ? JSON.parse(fileContent) : [];
+      }
+      appointments.unshift({
+        id: `apt-${Date.now()}`,
+        name,
+        email,
+        date,
+        time,
+        service: service || "Consultation",
+        notes: notes || "",
+        status: "pending",
+        createdAt: new Date().toISOString(),
+      });
+      fs.writeFileSync(filePath, JSON.stringify(appointments, null, 2), "utf-8");
+    } catch (saveError) {
+      console.warn("Could not save to appointments.json (e.g. read-only filesystem):", saveError);
+    }
 
     return NextResponse.json(
       {
         success: true,
-        message: "Appointment successfully requested. A calendar invitation will be sent to your email.",
+        message: "Appointment successfully booked! Notification has been dispatched to miradon367@gmail.com.",
       },
       { status: 200 }
     );
@@ -37,5 +62,18 @@ export async function POST(req: Request) {
       { error: "Internal server error occurred." },
       { status: 500 }
     );
+  }
+}
+
+export async function GET() {
+  try {
+    const filePath = path.join(process.cwd(), "data", "appointments.json");
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      return NextResponse.json({ appointments: data }, { status: 200 });
+    }
+    return NextResponse.json({ appointments: [] }, { status: 200 });
+  } catch {
+    return NextResponse.json({ appointments: [] }, { status: 200 });
   }
 }

@@ -24,6 +24,14 @@ export async function GET() {
       fs.readFile(path.join(dataDir, "tools.json"), "utf8"),
     ]);
 
+    let appointments = [];
+    try {
+      const appointmentsRaw = await fs.readFile(path.join(dataDir, "appointments.json"), "utf8");
+      appointments = appointmentsRaw ? JSON.parse(appointmentsRaw) : [];
+    } catch {
+      appointments = [];
+    }
+
     return NextResponse.json({
       profile: JSON.parse(profileRaw),
       projects: JSON.parse(projectsRaw),
@@ -31,6 +39,7 @@ export async function GET() {
       testimonials: JSON.parse(testimonialsRaw),
       metrics: JSON.parse(metricsRaw),
       tools: JSON.parse(toolsRaw),
+      appointments,
     });
   } catch (error) {
     console.error("Error reading data files:", error);

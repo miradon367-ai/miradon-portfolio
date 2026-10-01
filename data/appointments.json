@@ -1,0 +1,13 @@
+[
+  {
+    "id": "apt-1790870585352",
+    "name": "Test Client",
+    "email": "client@test.com",
+    "date": "2026-10-15",
+    "time": "02:30 PM EST",
+    "service": "AI Video Creation & Direction",
+    "notes": "Test booking for automated email notification",
+    "status": "pending",
+    "createdAt": "2026-10-01T16:03:05.352Z"
+  }
+]

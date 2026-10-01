@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendContactEmail } from "@/lib/email";
 
 export async function POST(req: Request) {
   try {
@@ -12,17 +13,12 @@ export async function POST(req: Request) {
       );
     }
 
-    // In a production environment with Resend or Formspree, send actual email
-    // For local / serverless environment, log securely and return verified success
-    console.log("📨 [NEW CONTACT INQUIRY RECEIVED]");
-    console.log({
-      to: "miradon367@gmail.com",
-      from: email,
+    // Dispatch email notification to miradon367@gmail.com
+    await sendContactEmail({
       name,
-      subject: subject || `Inquiry from ${name}`,
-      service: service || "General",
+      email,
+      subject: subject || (service ? `Service Request: ${service}` : `Inquiry from ${name}`),
       message,
-      timestamp: new Date().toISOString(),
     });
 
     return NextResponse.json(
